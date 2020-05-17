@@ -1,12 +1,28 @@
 import React from "react";
-import Card from './Card.jsx';
-import contacts from '../contacts.js';
+import Card from "./Card.jsx";
+import contacts from "../contacts.js";
+
+function createCard(contact) {
+  return (
+    <Card
+      key={contact.id}
+      name={contact.name}
+      img={contact.imgURL}
+      tel={contact.phone}
+      email={contact.email}
+    />
+  );
+}
 
 function App() {
   return (
     <div>
       <h1 className="heading">My Contacts</h1>
-      <Card
+
+      {contacts.map(createCard)}
+
+      {/*
+        <Card
         name={contacts[0].name}
         img={contacts[0].imgURL}
         tel={contacts[0].phone}
@@ -24,6 +40,7 @@ function App() {
         tel={contacts[2].phone}
         email={contacts[2].email}
       />
+      */}
     </div>
   );
 }
